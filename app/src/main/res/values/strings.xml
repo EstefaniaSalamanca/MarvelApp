@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_favorites">Favoritos</string>
+    <string name="tittle_search">Buscar</string>
+    <string name="title_exit">Salir</string>
+    <string name="title_detail">Detalle</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
