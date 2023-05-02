@@ -4,15 +4,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
+import com.example.myapplication.data.database.entities.Favorite
 import com.example.myapplication.data.model.ResultsModel
 
 class FavoritesAdapter (
-    var characterList: List<ResultsModel> = emptyList(), private val onItemSelected: (Int) -> Unit
+    var favoriteList: List<Favorite> = emptyList()
 ) :
     RecyclerView.Adapter<FavoritesViewHolder>() {
 
-    fun setData(List: List<ResultsModel>) {
-        characterList = List
+    fun setData(List: List<Favorite>) {
+        favoriteList = List
         notifyDataSetChanged()
     }
 
@@ -23,10 +24,10 @@ class FavoritesAdapter (
     }
 
     override fun onBindViewHolder(holder: FavoritesViewHolder, position: Int) {
-        holder.bind(characterList[position], onItemSelected)
+        holder.bind(favoriteList[position])
     }
 
-    override fun getItemCount() = characterList.size
+    override fun getItemCount() = favoriteList.size
 
 }
 

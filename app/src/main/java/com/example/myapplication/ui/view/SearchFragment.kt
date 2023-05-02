@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.core.RetrofitHelper
+import com.example.myapplication.data.database.entities.Favorite
 import com.example.myapplication.data.model.CharacterModel
 import com.example.myapplication.data.network.MarvelApiClient
 import com.example.myapplication.databinding.FragmentSearchBinding
@@ -26,7 +27,6 @@ import retrofit2.Response
 class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private lateinit var adapter: CharacterAdapter
-
     private val binding get() = _binding!!
 
     override fun onCreateView(

@@ -19,19 +19,9 @@
             android:layout_height="match_parent"
             android:scaleType="centerCrop"/>
 
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/btnFav"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleX="2"
-            android:scaleY="2"
-            app:layout_constraintTop_toTopOf="@id/ivCharacter"
-            app:layout_constraintStart_toStartOf="@id/ivCharacter"
-            app:layout_constraintBottom_toBottomOf="@id/ivCharacter"
-            android:button="@drawable/baseline_star_border_24"
-            android:buttonTint="@color/favorite_color">
+       
 
-        </com.google.android.material.checkbox.MaterialCheckBox>
+
 
         <FrameLayout
             android:layout_width="match_parent"

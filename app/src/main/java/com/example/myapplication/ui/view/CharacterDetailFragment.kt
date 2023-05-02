@@ -29,12 +29,15 @@ import retrofit2.Response
 
 class CharacterDetailFragment : Fragment() {
 
+
+
     private var _binding: FragmentCharacterDetailBinding? = null
     private lateinit var viewModel: CharacterDetailViewModel
     private var id: Int = 0
     private val binding get() = _binding ?: throw IllegalStateException("Binding is null")
     private lateinit var favoritesDao: FavoritesDao
     private lateinit var applicationContext: Context
+private var itemDetalle: ResultDetailModel? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,22 +66,18 @@ class CharacterDetailFragment : Fragment() {
 
         favoritesDao = CharacterDatabase.getInstance(applicationContext).favoritesDao()
 
-        binding.btnFav.isChecked = false
 
-        binding.btnFav.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
+
+        binding.btnFav.setOnClickListener {
+
                 // Agregar a favoritos
                 CoroutineScope(Dispatchers.IO).launch {
-                    val favorite = Favorite(1,"Pepe","fdfgsdfgsdg-img")
-                    favoritesDao.insertFavorite(favorite)
+
+                    favoritesDao.insertFavorite(Favorite(itemDetalle!!.characterId,
+                        itemDetalle!!.characterName , itemDetalle!!.imageUrl))
+                    Log.i("estefania", favoritesDao.getAllFavorites().toString())
                 }
-            } else {
-                // Eliminar de favoritos
-                CoroutineScope(Dispatchers.IO).launch {
-                    val favorite = Favorite(1,"Pepe","fdfgsdfgsdg-img")
-                    favoritesDao.deleteFavorite(favorite)
-                }
-            }
+
         }
 
     getCharactersInformation(id)
@@ -95,7 +94,7 @@ class CharacterDetailFragment : Fragment() {
                 Log.i("Estefania", response.toString())
 
                 val characters: List<ResultDetailModel> = response.data?.results ?: emptyList()
-
+                itemDetalle=characters[0]
                 withContext(Dispatchers.Main) {
                     createUI(characters)
                 }

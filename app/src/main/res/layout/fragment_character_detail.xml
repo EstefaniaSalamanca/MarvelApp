@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detailView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    android:id="@+id/detailView"
     android:padding="8dp"
 
     tools:context=".ui.view.CharacterDetailFragment">
@@ -21,7 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvDescription"
@@ -42,28 +42,28 @@
 
             android:layout_marginHorizontal="10dp"
             android:gravity="center"
-            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="18sp"
+            android:textStyle="bold"
             tools:text="Rick Jones has been Hulk's best bud since day one, but now he's more than a friend...he's a teammate! Transformed by a Gamma energy explosion, A-Bomb's thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction! ">
 
         </TextView>
 
     </androidx.cardview.widget.CardView>
 
-    <com.google.android.material.checkbox.MaterialCheckBox
+    <Button
         android:id="@+id/btnFav"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleX="2"
-        android:scaleY="2"
-        android:layout_marginTop="180dp"
-        app:layout_constraintTop_toTopOf="@id/ivCharacter"
-        app:layout_constraintStart_toStartOf="@id/ivCharacter"
-        app:layout_constraintBottom_toBottomOf="@id/ivCharacter"
+        android:backgroundTint="@color/favorite_color"
         android:button="@drawable/baseline_star_border_24"
-        android:buttonTint="@color/favorite_color">
+        android:text="add to favorite"
+        app:layout_constraintTop_toBottomOf="@id/ivCharacter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cvDescription"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="312dp">
 
-    </com.google.android.material.checkbox.MaterialCheckBox>
+    </Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
